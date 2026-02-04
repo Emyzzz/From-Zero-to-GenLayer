@@ -1,0 +1,11 @@
+Optimistic Democracy Consensus (ODC)
+
+GenLayer allows validators to:
+
+Execute the same contract
+
+Independently evaluate subjective outcomes
+
+Optimistically finalize when there is agreement
+
+Democratically converge when there is disagreement
