@@ -1,0 +1,5 @@
+git clone https://github.com/genlayerlabs/genlayer-project-boilerplate.git
+cd genlayer-project-boilerplate
+npm install
+pip install -r requirements.txt
+npm run studio
