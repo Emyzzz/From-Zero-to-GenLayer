@@ -1,0 +1,24 @@
+npm install genlayer-js
+import { GenLayerClient } from "genlayer-js";
+
+
+const client = new GenLayerClient({ network: "local" });
+const contract = await client.getContract("DisputeResolution");
+
+await contract.call("submit_claim", {
+sender: userAddress,
+claim: "Work was completed as agreed"
+});
+
+const state = await contract.state();
+console.log(state.winner);
+
+UX Tip
+
+Design UIs that:
+
+Show pending states
+
+Explain what validators are deciding
+
+Do not assume instant finality
