@@ -1,0 +1,37 @@
+from genlayer import Contract, State
+
+
+class DisputeResolution(Contract):
+def __init__(self):
+self.state = State({
+"party_a": None,
+"party_b": None,
+"claim_a": None,
+"claim_b": None,
+"resolved": False,
+"winner": None
+})
+
+
+def register_parties(self, a, b):
+self.state.party_a = a
+self.state.party_b = b
+
+
+def submit_claim(self, sender, claim):
+if sender == self.state.party_a:
+self.state.claim_a = claim
+elif sender == self.state.party_b:
+self.state.claim_b = claim
+
+
+def resolve(self):
+return {
+"claim_a": self.state.claim_a,
+"claim_b": self.state.claim_b
+}
+
+
+def finalize(self, decision):
+self.state.winner = decision
+self.state.resolved = True
